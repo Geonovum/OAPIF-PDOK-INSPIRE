@@ -1,8 +1,8 @@
 ## Results
 
-### Resulting findings
+### Resulting findings High5 with PDOK
 
-The following findings were encountered during the High5 session and are listed per requirement
+The following findings were encountered during the High5 session with PDOK and are listed per requirement
 
 #### Requirement 1 and 2: OGC API Features Core and INSPIRE-MIF document
 
@@ -14,19 +14,20 @@ Multilinguality is not a relevant issue for the Dutch situation, but might be of
 
 #### Requirement 4:predefined download
 
+In this case predefined download is considerated the same as the bulkdownload (requirement 6), but it could also be a subset.
 Predefined download was not difficult to implement, because we easily referred to the existing Atom feed download services via https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html with
-https://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip
-https://s3.delivery.pdok.nl/public/geonovum/addresses.gpkg
+https://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip, which contains the INSPIRE harmonized GML.
+Additionaly there is a geopackage link (https://s3.delivery.pdok.nl/public/geonovum/addresses.gpkg), but that is not required for INSPIRE.
 
 #### Requirement 5:Geojson 
 
-1. Much time is needed for the mapping to json. This was one of the reasons for using addresses, because for this theme, this work was already done: https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads
+1. It was expected that much time would be needed for the mapping to json if this mapping was not available. This was one of the reasons for using addresses, because for this theme, this work had already been done: https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads
 2. We need a centralized establishment of json schema's for all the INSPIRE feature types, otherwise member states will all do this in their own way and we will never reach the goal of INSPIRE to be able to do cross boarder mapping.
 3. We could consider leaving out the empty fields, or use an option not to show them
 
 #### Requirement 6:bulk download 
 
-The bulk download requirement, is considered the same as the one for predefined download.
+In this case, the bulk download requirement, is considered the same as the one for predefined download, but that is not always the case as stated in requirement 4.  
 
 #### Requirement 7:CRS ETRS89 and WGS84
 
@@ -53,11 +54,13 @@ https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.m
 
 For implementing filters, the bbox and items options were implemented. A next step would be filtering on values of the attributes. 
 For that it would be needed to get an overview of the attributes with https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html
+The specification for filtering [[Pub-6]] does not yet have the status "approved" and has not yet been taken into account.
 
 #### Requirement 12:metadata links
 
 1. Metadata link of the dataset was not difficult to implement, because we easily referred to it via https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html with:
-https://www.nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=a5f961e9-ebdd-41e2-b8e8-ab33ed340a83 . It still needs adjustment, for adding the OAPIF to the download links. A new protocol needs to be added to the codelist for this. (https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1)
+https://www.nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=a5f961e9-ebdd-41e2-b8e8-ab33ed340a83 . It still needs adjustment, for adding the OAPIF to the download links. A new protocol needs to be added to the codelist for this. (https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
+As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol
 2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments
 3. Metadata of the service could also be obtained from: https://api.pdok.nl/geonovum/oaf/v1_0/api?f=html
 
@@ -69,7 +72,7 @@ https://www.nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=a5f
 4. PDOK has mainly focussed on the OGC API Features Core part 1 [[PUB-1]]. A next step would be to focus on part 2 (CRS) [[PUB-5]] and 3 (filtering) [[PUB-6]]
 5. Another blocking issue before implementation of the OAPIF for INSPIRE at PDOK is that descriptions of encodings are not yet available for most themes.
 
-### Resulting services
+#### Resulting services
 
 The resulting OGC API Feature service can be found via the links listed below.
 
@@ -88,17 +91,21 @@ https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html
 The items:
 https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/items?f=html
 
-### Possible improvements
+#### Possible improvements
 The following improvements could still be made after the high5 session:
 
 1. implementation of ETRS89 as CRS
 2. adding the INSPIRE ID
-3. give a result for https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html
+3. give a result for https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html to show all attributes and make it possible to filter on their values
 4. implement filters other than bbox and items
 5. metadata of the service and link to the service in the metadata of the dataset
-6. ..
 
-
-### Resulting documentation
+#### Resulting documentation
 
 A presentation in Dutch on the first results of the High5 can be found here: https://github.com/Geonovum/OAPIF-PDOK-INSPIRE/tree/main/docs/2021-06-25-OAPIF-PDOK-INSPIRE-High5_0.2.pptx
+
+### Resulting findings Geonovum testbed for OGC-API-Features
+
+The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features and are listed per requirement
+
+#### Requirement 1 and 2: OGC API Features Core and INSPIRE-MIF document

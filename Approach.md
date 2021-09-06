@@ -6,7 +6,8 @@ The approach consisted of the following steps:
 
 - establish requirements
 - organize a High5 week with stakeholders in the week starting at June 21 2021
-- Choose a data set (Dutch INSPIRE addresses)
+- Choose data sets (Dutch INSPIRE addresses and Statistical Units)
+- Implement an OAPIF at the Geonovum testbed for OGC-API-Features
 - start communication on Github 
 - report to INSPIRE community
 - organize presentations
@@ -16,11 +17,21 @@ The approach consisted of the following steps:
 Stakeholders are:
 - Geonovum as initiator and author of this document (https://www.geonovum.nl)
 - PDOK (Publieke Dienstverlening op de Kaart, http://www.pdok.nl) as hosting organization for geoservices
-- Dutch Kadaster (https://www.kadaster.nl) as data provider
+- [Dutch Kadaster](https://www.kadaster.nl) and [Statistics Netherlands](https://www.cbs.nl/) as data providers
 
 ### Used tools
 
-PDOK has used self developed software based on Go and PostgreSQL/Postgis. (https://github.com/PDOK/goaf)
+PDOK has used self developed software based on Go and PostgreSQL/Postgis. (https://github.com/PDOK/goaf).
+At the Geonovum testbed for OGC-API-Features we chose for [Pygeoapi](https://pygeoapi.io/). 
+
+### Used data
+
+The test at PDOK used the As-is dataset for the addresses in a csv format. This data was mapped to geojson with OGR modules in Goaf. This dataset was chosen, because a decription of the geojson encoding was already available at [[PUB-4]].
+The harmonized data was not chosen, because it did not contain the actual addresses, but only a link. This is caused by the complexity of the INSPIRE model.
+
+
+The test at the Geonovum testbed for OGC-API-Features used the WFS of the INSPIRE harmonized dataset for [Statistical Units](https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/e08079df-6c19-486e-916e-5c9948cfafea).
+This dataset was chosen, because the harmonized WFS returns simple GML, so we had no problems with complex GML.
 
 ###	Requirements
 
