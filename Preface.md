@@ -5,7 +5,7 @@ The document is meant for INSPIRE Data providers, Data hosting organizations lik
 
 OGC API features (OAPIF) are a download service by means of an API (Application Program Interface) based on OGC standards. They have been considered as follow up for the OGC WFS standard, but that does not mean it will replace it.
 They are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming at the non GIS-community, like web developers. They are easier to use and need less knowledge in the spatial domain.
-An other drive behind the use of OAPIF, is the requirement to use them for the High Value Datasets as stated in the Open data directive.
+An other drive behind the use of OAPIF, is the requirement to use API's for the High Value Datasets as stated in the Open data directive.
 
 Because of this, Geonovum hopes to stimulate dataproviders to serve their INSPIRE data whith OAPIF. The focus of this document will mainly be on INSPIRE aspects.
 The underlying research aimed at implementing OAPIF services with all the INSPIRE requierments in mind. A main research question is, whether there are any barriers caused by the INSPIRE requirements, when implementing an OAPIF service
