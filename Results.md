@@ -54,7 +54,7 @@ https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.m
 
 For implementing filters, the bbox and items options were implemented. A next step would be filtering on values of the attributes. 
 For that it would be needed to get an overview of the attributes with https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html
-The specification for filtering [[Pub-6]] does not yet have the status "approved" and has not yet been taken into account.
+The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
 
 #### Requirement 12:metadata links
 
