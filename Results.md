@@ -163,7 +163,7 @@ As long as it is not there, the Dutch profile for metadata can be used with the 
 #### Other findings testbed Geonovum
 
 1. OAPIF is more suitable for Statistical Units than WFS 2.0, because the collections make it easier to seperate the different SU types.
-2. The implemented OAPIF at Pygeoapi performs slower than WFS 2.0 (15 seconds versus 3 seconds for Dutch communities)
+2. The implemented OAPIF at Pygeoapi performs slower than WFS 2.0 in QGIS 3.16 (15 seconds versus 3 seconds for Dutch communities). This is probably due to QGIS, because in the browser it performs much faster.
 
 #### Resulting services testbed Geonovum
 
@@ -191,6 +191,13 @@ The following improvements could still be made:
 3. metadata of the service and link to the service in the metadata of the dataset
 4. test direct WFS input into Pygeoapi
 5. testing with more complex INSPIRE themes than Statistical Units
+
+### General findings
+
+1. Complex GML as input and output are difficult as long as tooling (server and client) expect GeoJSON as format
+2. Much time is needed for flattening of the data and the associated description of the encoding to alternative simple encodings. A centralized EU approach is needed.
+3. Current tooling (server and client) does not yet support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-6]]. Also the extention of the GeoJSON standard which is in development might help in this issue.
+
 
 ### Resulting documentation
 
