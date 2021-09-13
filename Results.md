@@ -26,7 +26,7 @@ Additionally there is a geopackage link (https://s3.delivery.pdok.nl/public/geon
 
 1. It was expected that much time would be needed for the mapping to GeoJSON if this mapping was not available. This was one of the reasons for using addresses, because for this theme, this work had already been done: https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads
 2. We need a centralized establishment of GeoJSON schema's for all the INSPIRE feature types, otherwise member states will all do this in their own way and we will never reach the goal of INSPIRE to be able to do cross boarder mapping.
-3. We could consider leaving out the empty fields, or use an option not to show them
+3. We could consider leaving out the empty fields, or use an option not to show them.
 
 #### RQ 6:bulk download for High5 PDOK
 
@@ -39,7 +39,7 @@ PDOK would do the transformation in advance and serve two datasets to improve th
 
 #### RQ 8:GML for High5 PDOK
 
-1. GML as output is difficult and would not be realistic in the time available for this research. It was there for not implemented. One could also discuss if it is really useful, because it is not in line with the aim of OGI API Features: easy to use for developers.
+1. Complex GML as output is difficult and would not be realistic in the time available for this research. It was there for not implemented. One could also discuss if it is really useful, because it is not in line with the aim of OGI API Features: easy to use for developers.
 2. Complex GML as input needs a flattening of the data. This is needed for the software that publishes the features. It can only work with simple features, with one value per attribute and without relations to other objects. This is often not the case with the more complex INSPIRE models.
 3. PDOK prefers flattened data as input in geopackages, so the data providers have to do this flattening by themself.
 4. In the case of the Dutch addresses the choice has finally been made, not to use the harmonized GML as input, but the AS-Is-data, because in this harmonized GML file, the addresses don't contain the actual address, but links to sub elements via the components tag. As a result of this choice, the Inspire-ID is missing because that was no part of the AS-Is data.
@@ -48,33 +48,33 @@ PDOK would do the transformation in advance and serve two datasets to improve th
 
 Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) were implemented:
 1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
-2. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
+2. no complete version number in every return: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57).
 
 #### RQ 10:describing encoding for High5 PDOK
 
 The describing of the encoding was not difficult to implement, because we easily referred to it via https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html with:
-https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md#model-mapping
+https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md#model-mapping.
 	
 #### RQ 11:filtering for High5 PDOK
 
 For implementing filters, the bbox and items options were implemented. A next step would be filtering on values of the attributes. 
-For that it would be needed to get an overview of the attributes with https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html
+For that it would be needed to get an overview of the attributes with https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html.
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
 
 #### RQ 12:metadata links for High5 PDOK
 
 1. Metadata link of the dataset was not difficult to implement, because we easily referred to it via https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html with:
 https://www.nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=a5f961e9-ebdd-41e2-b8e8-ab33ed340a83 . It still needs adjustment, for adding the OAPIF to the download links. A new protocol needs to be added to the code list for this. (https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
-As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol
-2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments
-3. Metadata of the service could also be obtained from: https://api.pdok.nl/geonovum/oaf/v1_0/api?f=html
+As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
+2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments.
+3. Metadata of the service could also be obtained from: https://api.pdok.nl/geonovum/oaf/v1_0/api?f=html.
 
 #### Other findings for High5 PDOK
 
-1. The HIGH5 session has given a lot of insight for PDOK for future implementations of INSPIRE OAPIF for their data providers
+1. The HIGH5 session has given a lot of insight for PDOK for future implementations of INSPIRE OAPIF for their data providers.
 2. More technical findings and issues can be found [here](https://github.com/PDOK/goaf/issues).
-3. The data provider (Kadaster) was happy with the overview the collection request gave
-4. PDOK has mainly focussed on the OGC API Features Core part 1 [[PUB-1]]. A next step would be to focus on part 2 (CRS) [[PUB-5]] and 3 (filtering) [[PUB-6]]
+3. The data provider (Kadaster) was happy with the overview the collection request gave.
+4. PDOK has mainly focussed on the OGC API Features Core part 1 [[PUB-1]]. A next step would be to focus on part 2 (CRS) [[PUB-5]] and 3 (filtering) [[PUB-6]].
 5. Another blocking issue before implementation of the OAPIF for INSPIRE at PDOK is that descriptions of encodings are not yet available for most themes.
 
 #### Resulting services for High5 PDOK
@@ -99,11 +99,11 @@ https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/items?f=html
 #### Possible improvements for High5 PDOK
 The following improvements could still be made after the high5 session:
 
-1. implementation of ETRS89 as CRS
-2. adding the INSPIRE ID
-3. give a result for https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html to show all attributes and make it possible to filter on their values
-4. implement filters other than bbox and items
-5. metadata of the service and link to the service in the metadata of the dataset
+1. implementation of ETRS89 as CRS,
+2. adding the INSPIRE ID,
+3. give a result for https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html to show all attributes and make it possible to filter on their values,
+4. implement filters other than bbox and items,
+5. metadata of the service and link to the service in the metadata of the dataset.
 
 
 ### Resulting findings Geonovum testbed for OGC-API-Features
@@ -126,7 +126,7 @@ Since the WFS results in simple GML the mapping was an easy 1 to 1 mapping. The 
 #### RQ 7:CRS ETRS89 and WGS84 testbed Geonovum
 
 The source data from the WFS was in [ETRS89](https://epsg.io/4258).
-Pygeoapi does have the option to specify the source_srs and target_srs, but it does not use this yet.
+Pygeoapi does have the option to specify the source_srs and target_srs, but it is not used yet by clients like QGIS.
 Qgis considers the output to be [WGS84](https://epsg.io/4326) regardless of the specified target_srs. 
 
 #### RQ 8:GML testbed Geonovum
@@ -149,21 +149,21 @@ The describing of the encoding has not been performed, but in fact it is a simpl
 #### RQ 11:filtering testbed Geonovum
 
 For implementing filters, the bbox and items options were implemented. Next to that, one can filter on the attributes which can be retrieved from:
-https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2018/queryables
+https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2018/queryables.
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
 
 #### RQ 12:metadata links testbed Geonovum
 
 1. Metadata link of the dataset was not difficult to implement, because we easily referred to it via https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2018 with:
 https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb. It still needs adjustment, for adding the OAPIF to the download links. A new protocol needs to be added to the code list for this. (https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
-As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol
-2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments
-3. Metadata of the service could also be obtained from: https://apisandbox.geonovum.nl/pygeoapi_SU
+As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
+2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments.
+3. Metadata of the service could also be obtained from: https://apisandbox.geonovum.nl/pygeoapi_SU.
 
 #### Other findings testbed Geonovum
 
 1. OAPIF is more suitable for Statistical Units than WFS 2.0, because the collections make it easier to separate the different SU types.
-2. In QGIS 3.16, the implemented OAPIF at Pygeoapi performs slower than WFS 2.0 (15 seconds versus 3 seconds for Dutch communities). This is probably due to QGIS, because in the browser it performs much faster.
+2. In QGIS 3.16, the implemented OAPIF at Pygeoapi performs slower than WFS 2.0 (15 seconds versus 3 seconds for Dutch communities). This is probably due to QGIS, because in the browser Pygeoapi performs much faster.
 
 #### Resulting services testbed Geonovum
 
@@ -180,7 +180,7 @@ https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente
 
 <figure id="Figuur_2">
 <img src="media/pygeoapi_SU.jpg" alt="">
-<figcaption>Result from collection request.</figcaption>
+<figcaption>Result from an items request on collection of Dutch communities.</figcaption>
 </figure>
 
 #### Possible improvements testbed Geonovum
@@ -196,7 +196,7 @@ The following improvements could still be made:
 
 1. Complex GML as input and output are difficult as long as tooling (server and client) expect GeoJSON as format
 2. Much time is needed for flattening of the data and the associated description of the encoding to alternative simple encodings. A centralized EU approach is needed.
-3. Current tooling (server and client) does not yet support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-6]]. Also the extension of the GeoJSON standard which is in development, might help in this issue.
+3. Current tooling (server and client) does not yet support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-6]]. Also the extension of the GeoJSON standard for an other CRS which is in development, might help in this issue.
 
 
 ### Resulting documentation
