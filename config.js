@@ -149,7 +149,7 @@ var respecConfig =
         title:      "INSPIRE UML-to-GeoJSON encoding rule",
         href:       "https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules",
         status:     "V0.1",
-        publisher:  "Workinggroup on Inspire Action 2017.2",
+        publisher:  "Working group on Inspire Action 2017.2",
         company:    "Companynaam",
     },
 	"PUB-5":
