@@ -106,35 +106,35 @@ The following improvements could still be made after the high5 session:
 5. metadata of the service and link to the service in the metadata of the dataset.
 
 
-### Resulting findings Geonovum testbed for OGC-API-Features
+### Resulting findings Pygeoapi Geonovum testbed for OGC-API-Features
 
 The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features.
 Only new findings compared to the High5 session with PDOK are mentioned.
 
-#### RQ 4:predefined download testbed Geonovum
+#### RQ 4:predefined download Pygeoapi testbed Geonovum
 
 In this case predefined download is considered the same as the bulk download (requirement 6), but it could also be a subset.
 Predefined download was not difficult to implement, because we referred to the WFS of the harmonized dataset:
 https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2018%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
 
-#### RQ 5:GeoJSON testbed Geonovum
+#### RQ 5:GeoJSON Pygeoapi testbed Geonovum
 
 The source encoding used was the GML as resulted from the WFS request mentioned above. It was converted into gpkg via QGIS v3.16. which was input to Pygeoapi.
 Since the WFS results in simple GML the mapping was an easy 1 to 1 mapping. The conversion to the output in GeoJSON was an automated process within Pygeoapi.
 
 
-#### RQ 7:CRS ETRS89 and WGS84 testbed Geonovum
+#### RQ 7:CRS ETRS89 and WGS84 Pygeoapi testbed Geonovum
 
 The source data from the WFS was in [ETRS89](https://epsg.io/4258).
 Pygeoapi does have the option to specify the source_srs and target_srs, but it is not used yet by clients like QGIS.
 Qgis considers the output to be [WGS84](https://epsg.io/4326) regardless of the specified target_srs. 
 
-#### RQ 8:GML testbed Geonovum
+#### RQ 8:GML Pygeoapi testbed Geonovum
 
 1. Simple GML as input is no problem. In fact we could have skipped the in between step to gpkg because Pygeoapi supports direct WFS input. If it were complex GML this would probably not have been that simple, but this has not yet been tested.
 2. Output as GML is not possible within Pygeoapi. 
 
-#### RQ 9:Dutch API design rules testbed Geonovum
+#### RQ 9:Dutch API design rules Pygeoapi testbed Geonovum
 
 Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) were implemented:
 1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
@@ -142,17 +142,17 @@ Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-
 3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
 4. singular in stead of plural nouns were used: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-54
 
-#### RQ 10:describing encoding testbed Geonovum
+#### RQ 10:describing encoding Pygeoapi testbed Geonovum
 
 The describing of the encoding has not been performed, but in fact it is a simple 1 to 1 conversion.
 	
-#### RQ 11:filtering testbed Geonovum
+#### RQ 11:filtering Pygeoapi testbed Geonovum
 
 For implementing filters, the bbox and items options were implemented. Next to that, one can filter on the attributes which can be retrieved from:
 https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2018/queryables.
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
 
-#### RQ 12:metadata links testbed Geonovum
+#### RQ 12:metadata links Pygeoapi testbed Geonovum
 
 1. Metadata link of the dataset was not difficult to implement, because we easily referred to it via https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2018 with:
 https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb. It still needs adjustment, for adding the OAPIF to the download links. A new protocol needs to be added to the code list for this. (https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
@@ -160,12 +160,12 @@ As long as it is not there, the Dutch profile for metadata can be used with the 
 2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments.
 3. Metadata of the service could also be obtained from: https://apisandbox.geonovum.nl/pygeoapi_SU.
 
-#### Other findings testbed Geonovum
+#### Other findings Pygeoapi testbed Geonovum
 
 1. OAPIF is more suitable for Statistical Units than WFS 2.0, because the collections make it easier to separate the different SU types.
 2. In QGIS 3.16, the implemented OAPIF at Pygeoapi performs slower than WFS 2.0 (15 seconds versus 3 seconds for Dutch communities). This is probably due to QGIS, because in the browser Pygeoapi performs much faster.
 
-#### Resulting services testbed Geonovum
+#### Resulting services Pygeoapi testbed Geonovum
 
 The resulting OGC API Feature service can be found via the links listed below.
 
@@ -183,7 +183,7 @@ https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente
 <figcaption>Result from an items request on collection of Dutch communities.</figcaption>
 </figure>
 
-#### Possible improvements testbed Geonovum
+#### Possible improvements Pygeoapi testbed Geonovum
 The following improvements could still be made:
 
 1. implementation of ETRS89 as output CRS conform [[PUB-5]]
@@ -192,12 +192,48 @@ The following improvements could still be made:
 4. test direct WFS input into Pygeoapi
 5. testing with more complex INSPIRE themes than Statistical Units
 
+### Results Geoserver on testbed Geonovum
+
+Based on the geoserver implementation on the Geonovum testbed, it was possible to publish two layers from Statistical Units as OAPIF.
+The Geocat Bridge plugin in QGIS was used for this.
+The result is a two-layer OAPIF:
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/
+
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson
+Clearly show that multiple CRSs are supported.
+The items can be retrieved with multiple CRS's as output. 
+Compare in RD New:
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew/items?f=application%2Fgeo%2Bjson&crs=http://www.opengis.net/def/crs/EPSG/0/28992/
+with ETRS89:
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew/items?f=application%2Fgeo%2Bjson&crs=http://www.opengis.net/def/crs/EPSG/0/4258/
+
+Regarding to OGC-API-Features specification part 2 [[PUB-5]] 4 requirements were not met.
+- [Requirement 3 and 4](http://docs.opengeospatial.org/is/18-058/18-058.html#_storage_crs) concern the Storage CRS which could not be found in the description of the collection object.
+- [Requirement 15 and 16](http://docs.opengeospatial.org/is/18-058/18-058.html#_coordinate_reference_system_information_independent_of_the_feature_encoding) concern the us of a Content-CRS"header where Geoserver uses a OGC-CRS header.
+
+One big drawbag sofar for Geosever (version 2.19.1) is that links to the metadata, predefined or bulkdownload were not included in the [list of links](https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson).
+
+Geoserver automaticaly publishes a WMS and a WFS.
+With the WFS it is possible to include a link to the metadata in the GetCapabilities file:
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/su_nuts1_2016_RDNew/wfs?request=GetCapabilities
+
+Geoservice status in relation to OGC specifications:
+https://docs.geoserver.org/stable/en/user/community/ogc-api/features/index.html
+
+### Results Multiple CRS's with GISspecialisten.nl
+
+An other example of using more than one CRS as output for the OAPIF is :
+
+Compare:In RD New: 
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/28992
+with ETRS89: 
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/4258
+
 ### General findings
 
 1. Complex GML as input and output are difficult as long as tooling (server and client) expect GeoJSON as format
 2. Much time is needed for flattening of the data and the associated description of the encoding to alternative simple encodings. A centralized EU approach is needed.
-3. Current tooling (server and client) does not yet support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-6]]. Also the extension of the GeoJSON standard for an other CRS which is in development, might help in this issue.
-
+3. Current tooling (server and client) does not yet fully support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-5]]. Geoserver and the example of GISspecialisten came close to this specification. Also the extension of the GeoJSON standard for an other CRS which is in development, might help in this issue.
 
 ### Resulting documentation
 
