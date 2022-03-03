@@ -200,14 +200,14 @@ The result is a two-layer OAPIF:
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/
 
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson
-Clearly show that multiple CRSs are supported.
+clearly shows that multiple CRSs are supported.
 The items can be retrieved with multiple CRS's as output. 
 Compare in RD New:
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew/items?f=application%2Fgeo%2Bjson&crs=http://www.opengis.net/def/crs/EPSG/0/28992/
 with ETRS89:
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew/items?f=application%2Fgeo%2Bjson&crs=http://www.opengis.net/def/crs/EPSG/0/4258/
 
-Regarding to OGC-API-Features specification part 2 [[PUB-5]] 4 requirements were not met.
+Regarding to OGC-API-Features specification part 2 [[PUB-5]], 4 requirements were not met:
 - [Requirement 3 and 4](http://docs.opengeospatial.org/is/18-058/18-058.html#_storage_crs) concern the Storage CRS which could not be found in the description of the collection object.
 - [Requirement 15 and 16](http://docs.opengeospatial.org/is/18-058/18-058.html#_coordinate_reference_system_information_independent_of_the_feature_encoding) concern the us of a Content-CRS"header where Geoserver uses a OGC-CRS header.
 
@@ -217,16 +217,20 @@ Geoserver automaticaly publishes a WMS and a WFS.
 With the WFS it is possible to include a link to the metadata in the GetCapabilities file:
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/su_nuts1_2016_RDNew/wfs?request=GetCapabilities
 
-Geoservice status in relation to OGC specifications:
+Geoservice status in relation to OGC specifications can be found at:
 https://docs.geoserver.org/stable/en/user/community/ogc-api/features/index.html
 
 ### Results Multiple CRS's with GISspecialisten.nl
 
-An other example of using more than one CRS as output for the OAPIF is :
+An other example of using more than one CRS as output for the OAPIF is the result of the company GISspecialisten:
+https://geoservice-ogc-api.azurewebsites.net/api/
 
-Compare:In RD New: 
+Compare in RD New:
+
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/28992
+
 with ETRS89: 
+
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/4258
 
 ### General findings
