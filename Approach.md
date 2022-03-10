@@ -51,7 +51,7 @@ Below the most relevant requirements are listed:
 |  9 | [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) | 1 | [[PUB-3]] |
 |  10 | [describing encoding](https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules) | 1 | [[PUB-4]] |
 |  11 | [filtering](https://docs.ogc.org/DRAFTS/19-079r1.html) | 2 | [[PUB-6]] |
-|  12 | [metadata links](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#rec_core_fc-md-descriptions) | 1 | [[PUB-1]] #rec_core_fc-md-descriptions |
+|  12 | [metadata links](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#rec_core_fc-md-descriptions) | 1 | [[PUB-1]] #rec_core_fc-md-descriptions  and  [[PUB-2]] #metadata-elements-of-the-data-set|
 
 
 ###	Relevant documentation 
