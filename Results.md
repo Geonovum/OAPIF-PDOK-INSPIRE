@@ -233,6 +233,9 @@ with ETRS89:
 
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/4258
 
+Interesting aspact is the use of JSON-FG as aternative format:
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_polygons/items?format=JSON-FG&limit=2
+
 ### General findings
 
 1. Complex GML as input and output are difficult as long as tooling (server and client) expect GeoJSON as format
