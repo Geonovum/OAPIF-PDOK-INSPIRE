@@ -236,6 +236,9 @@ https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspi
 Interesting aspact is the use of JSON-FG as aternative format:
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_polygons/items?format=JSON-FG&limit=2
 
+The final result of this Pilot has been published on:
+https://github.com/Geonovum/testbed-spatial-APIs/tree/main/topic%20%231%20Spatial%20data%20APIs%20CRS%20Extension
+
 ### General findings
 
 1. Complex GML as input and output are difficult as long as tooling (server and client) expect GeoJSON as format
