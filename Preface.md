@@ -9,9 +9,9 @@ Because of this, Geonovum hopes to stimulate data providers with this guideline 
 
 This document is a guideline for Dutch INSPIRE dataproviders who want to use OGC-API-Features to fulfill their INSPIRE obligations for downloadservices.
 It describes the requirements that are relevant to INSPIRE downloadservices. The requirements are based on the following documents:
-1) OGC-API-Features standards (Part 1 en Part 2), [[PUB-1]] en [[PUB-5]]
-2) Working group for setting up an INSPIRE Download service based on the OGC API-Features standard. INSPIRE-MIF. V1.0.[[PUB-2]]
-3) Dutch API design rules,[[PUB-3]]
+1. OGC-API-Features standards (Part 1 en Part 2), [[PUB-1]] en [[PUB-5]]
+2. Working group for setting up an INSPIRE Download service based on the OGC API-Features standard. INSPIRE-MIF. V1.0.[[PUB-2]]
+3. Dutch API design rules,[[PUB-3]]
 
 Four examples show how requirements can be met. Unfortunately, non of the examples fulfill all requirements.
 A roadmap is given for setting up your own OGC-API-Features service, along with the barriers that can be encountered.
