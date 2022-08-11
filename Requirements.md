@@ -36,9 +36,9 @@ The [multilinguality requirement class](https://github.com/INSPIRE-MIF/gp-ogc-ap
 ### Predefined download
 
 The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2] consists of 3 requirements for each collection to link to:
-1) the metadata of the corresponding dataset
-2) the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
-3) the license
+1. the metadata of the corresponding dataset
+2. the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
+3. the license
 
 ### GeoJSON
 
@@ -77,7 +77,7 @@ Once an other encoding than GML is used, data providers need to document how the
 
 ### Filtering
 
-The document describing the standards for [filtering](https://docs.ogc.org/DRAFTS/19-079r1.html), [[PUB-6]] are still a draft version.
+The specification for [filtering](https://docs.ogc.org/DRAFTS/19-079r1.html), [[PUB-6]] is still a draft version and has therefor not yet been taken into account.
 Some basic filtering requirements are described in http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_items_ [[PUB-1]].
 It concerns filtering on a bounding box and on properties.
 
