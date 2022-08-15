@@ -46,6 +46,8 @@ Per tool, these findings are elaborated in the next chapters when relevant.
 
 #### GOAF versus INSPIRE requirements
 
+The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features wih GOAF.
+
 ***RQ 1:OGC API Features Core***  
 The INSPIRE validator gave one error on the bbox parameter, although it seems to work fine:
 https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/items?f=json&bbox=4.87327047393363,53.08348503147304,4.87328,53.08349 returns 4 items in stead of 100
@@ -101,7 +103,7 @@ For that, it would be needed to get an overview of the attributes with https://a
 The following improvements could still be made:
 
 1. implementation of [ETRS89](https://epsg.io/4258) should be considered first, because this is the one used within INSPIRE. PDOK would do the transformation to ETRS89 in advance and serve two datasets. The alternative, transforming on the fly, would probably not perform well.
-2. adding the INSPIRE ID,
+2. adding the INSPIRE ID to the used dataset,
 3. give a result for https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/queryables?f=html to show all attributes and make it possible to filter on their values,
 4. implement filters other than bbox and items,
 5. metadata of the service and link to the service in the metadata of the dataset.
@@ -109,7 +111,7 @@ The following improvements could still be made:
 
 #### Pygeoapi versus INSPIRE requirements
 
-The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features.
+The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features wih Pygeoapi.
 
 ***RQ 1:OGC API Features Core***  
 The INSPIRE validator gave one error on the definition of the API, although it is available via https://apisandbox.geonovum.nl/pygeoapi_SU/openapi 
@@ -166,24 +168,33 @@ The following improvements could still be made:
 1. implementation of ETRS89 as output CRS conform [[PUB-5]]
 2. metadata of the service and link to the service in the metadata of the dataset
 3. test direct WFS or GML input into Pygeoapi
-4. testing with more complex INSPIRE themes than Statistical Units
+4. link to the license
+5. testing with more complex INSPIRE themes than Statistical Units
+6. adjust to the Dutch API design rules
 
 #### Geoserver versus INSPIRE requirements
 
-
-
-
-
-
-
-
-
-
 Based on the geoserver implementation on the Geonovum testbed, it was possible to publish two layers from Statistical Units as OAPIF.
-The Geocat Bridge plugin in QGIS was used for this.
-The result is a two-layer OAPIF:
+The Geocat Bridge plugin in QGIS was used for this. The result is a two-layer OAPIF:
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/
+The following findings were encountered during the test at the Geonovum testbed for OGC-API-Features with Geoserver via Geocat Bridge.
 
+***RQ 1:OGC API Features Core***  
+The INSPIRE validator gave one error on the respons of the filters, links and featuresID
+
+***RQ 4:predefined download***  
+There is no link to the metadata of the dataset.
+There is no link to the featureconcept metadata of the dataset.
+The licence link is missing.
+
+***RQ 5:GeoJSON***  
+The source encoding used was the GML as resulted from the WFS request mentioned above. It was converted into gpkg via QGIS v3.16. which was input to Geoserver via Gecat Bridge.
+The conversion to the output in GeoJSON was an automated process within Geoserver.
+
+***RQ 6:bulk download***
+The was no bulk download link. 
+
+***RQ 7:CRS ETRS89 and WGS84***
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson
 clearly shows that multiple CRSs are supported.
 The items can be retrieved with multiple CRS's as output. 
@@ -194,42 +205,137 @@ https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_
 
 Regarding to OGC-API-Features specification part 2 [[PUB-5]], 4 requirements were not met:
 - [Requirement 3 and 4](http://docs.opengeospatial.org/is/18-058/18-058.html#_storage_crs) concern the Storage CRS which could not be found in the description of the collection object.
-- [Requirement 15 and 16](http://docs.opengeospatial.org/is/18-058/18-058.html#_coordinate_reference_system_information_independent_of_the_feature_encoding) concern the us of a Content-CRS"header where Geoserver uses a OGC-CRS header.
+- [Requirement 15 and 16](http://docs.opengeospatial.org/is/18-058/18-058.html#_coordinate_reference_system_information_independent_of_the_feature_encoding) concern the us of a Content-CRS header where Geoserver uses a OGC-CRS header.
 
-One big drawbag sofar for Geosever (version 2.19.1) is that links to the metadata, predefined or bulkdownload were not included in the [list of links](https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson).
+***RQ 8:GML***  
+1. Since the input was from a WFS, the input originaly was GML encoded. It was converted into gpkg via QGIS v3.16. which was input to Geoserver via Gecat Bridge.
+2. Output as GML is not possible within Geoserver via OAPIF. But Geoserver does automaticaly create a comparable OGC-WFS which does support GML as output. 
 
-Geoserver automaticaly publishes a WMS and a WFS.
-With the WFS it is possible to include a link to the metadata in the GetCapabilities file:
-https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/su_nuts1_2016_RDNew/wfs?request=GetCapabilities
+***RQ 9:Dutch API design rules***  
+Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
+1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
+2. no version number in URL: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-20
+3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
+4. no use of the standard naming of the OAS document ('api' was used in stead of 'openapi') https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-51
 
-Geoservice status in relation to OGC specifications can be found at:
-https://docs.geoserver.org/stable/en/user/community/ogc-api/features/index.html
+***RQ 10:describing encoding***  
+The describing of the encoding has not been performed, but in fact it is a simple 1 to 1 conversion.
+But, if there had been a discription of how the encoding relates to the concerned INSPIRE datamodel, it would not have been possible to link to it.
+
+***RQ 11:filtering***  
+For implementing filters, the bbox and items options were implemented. Next to that, one can filter on the attributes which can be retrieved from:
+https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew/queryables.
+The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
+
+***RQ 12:metadata links***  
+1. There was no option for a link to the metadata. 
+2. The metadata of the services were not implemented, but could be copied from the WFS metadata with some slight adjustments: https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/su_nuts1_2016_RDNew/wfs?request=GetCapabilities
+3. Metadata of the service could also be obtained from: https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/api.
+
+***Other findings***  
+1. One big drawbag sofar for Geosever (version 2.19.1) is that links to the metadata, predefined or bulkdownload were not included in the [list of links](https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson).
+2. Based on a small inquiry, Geoserver apears to be the most used tooling for INSPIRE OAPIF in Europe. So it is strange that relatively simple INSPIRE requirement for linking to metadata, bulkdownload and lincence are not implemented.
+3. Geoservice status in relation to OGC specifications can be found at: https://docs.geoserver.org/stable/en/user/community/ogc-api/features/index.html
+
+***Possible improvements***  
+The following improvements could still be made:
+
+1. link to metadata of the dataset
+2. link to bulkdownload
+3. link to encoding description
+4. link to the license
+5. Geoserver has good support for multiple CRS's, but could still adjust more to OGC-API-Features specification part 2 [[PUB-5]]
+6. testing with more complex INSPIRE themes than Statistical Units
+7. adjust to the Dutch API design rules
 
 #### GISspecialisten.nl versus INSPIRE requirements
 
 An other example of using more than one CRS as output for the OAPIF is the result of the company GISspecialisten:  
-https://geoservice-ogc-api.azurewebsites.net/api/
+https://geoservice-ogc-api.azurewebsites.net/
+This Implemetation had its focus mainly on serving more than one CRS, so that explains why not all requirements were met.
+GISspecialisten has promissed to keep this test implementation live 1 year after implementation wich was the end of 2021.
 
-Compare in RD New:
+***RQ 1:OGC API Features Core***  
+The INSPIRE validator gave one error on the definition of the API, although it is available via https://geoservice-ogc-api.azurewebsites.net/api/
 
-https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/28992  
+***RQ 4:predefined download***  
+There is no link to the metadata of the dataset.
+There is no link to the featureconcept metadata of the dataset.
+The licence link is missing.
 
-with ETRS89: 
-
-https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/4258  
+***RQ 5:GeoJSON***  
+The source encoding used, was the geopackage wich could be dowloaded via INSPIRE Atom feed of the dataset "geharmoniseerde Beschermde Gebieden - Cultuur Historie" that can be found wia the metadata:  
+https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search;jsessionid=8F7125E8DE957788ED181DE50F0A24DB#/metadata/493ab81b-75f8-4205-b030-6b2fd9eb4295
+  
+In QGIS, the geopackage was converted to PostgreSQL SQL database, which was the basis for the tool serving the OAPIF.
+The output was converted by this tool to GeoJson:
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_polygons/items?limit=2
 
 Interesting aspact is the use of JSON-FG as aternative format:
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_polygons/items?format=JSON-FG&limit=2  
 
-The final result of this Pilot has been published on:
-https://github.com/Geonovum/testbed-spatial-APIs/tree/main/topic%20%231%20Spatial%20data%20APIs%20CRS%20Extension  
+***RQ 6:bulk download***
+The bulk download link has not been implemented. 
+
+***RQ 7:CRS ETRS89 and WGS84***
+https://geoservice-ogc-api.azurewebsites.net/collections/
+clearly shows that multiple CRSs are supported.
+The items can be retrieved with multiple CRS's as output. 
+Compare in RD New:  
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/28992  
+
+with ETRS89:  
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/4258 
+
+Regarding to OGC-API-Features specification part 2 [[PUB-5]], 2 requirements were not met:
+- [Requirement 3 and 4](http://docs.opengeospatial.org/is/18-058/18-058.html#_storage_crs) concern the Storage CRS which could not be found in the description of the collection object.
+
+***RQ 8:GML***  
+1. The application only works with a PostgreSQL SQL database, so no GML as input.
+2. Output as GML is not possible. 
+
+***RQ 9:Dutch API design rules***  
+Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
+1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
+2. no version number in URL: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-20
+3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
+4. no use of the standard naming of the OAS document ('api' was used in stead of 'openapi') https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-51
+
+***RQ 10:describing encoding***  
+The describing of the encoding has not been performed. 
+
+***RQ 11:filtering***  
+For implementing filters, the bbox and items options were implemented.
+The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been taken into account.
+
+***RQ 12:metadata links***  
+1. There was no option for a link to the metadata. 
+2. The metadata of the services were not implemented
+3. Metadata of the service could also be obtained from: https://geoservice-ogc-api.azurewebsites.net/api/.
+
+***Other findings***  
+1. Interesting aspact is the use of JSON-FG as aternative format:
+https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_polygons/items?format=JSON-FG&limit=2  
+2. The final result of this Pilot has been published on:
+https://github.com/Geonovum/testbed-spatial-APIs/tree/main/topic%20%231%20Spatial%20data%20APIs%20CRS%20Extension   
+
+***Possible improvements***  
+The following improvements could be made, allthoug it was not the intention of this example to make a fully compliant implementation:
+
+1. link to metadata of the dataset
+2. link to bulkdownload
+3. link to encoding description
+4. link to the license
+5. the GISspecialisten tool has good support for multiple CRS's, but could still adjust more to OGC-API-Features specification part 2 [[PUB-5]]
+6. adjust to the Dutch API design rules
+7. give a result for https://geoservice-ogc-api.azurewebsites.net/collections/queryables to show all attributes and make it possible to filter on their values
 
 ### General findings
 
 1. The protocol element in the metadata is based on a code list. A new protocol needs to be added to this list of [protocol values]https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
-2. Much time is needed for flattening of the data and the associated description of the encoding to alternative simple encodings. A centralized EU approach is needed.
-3. Current tooling (server and client) does not yet fully support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-5]]. Geoserver and the example of GISspecialisten came close to this specification. Also the extension of the GeoJSON standard for an other CRS which is in development, might help in this issue.
-5. Another blocking issue before implementation of the OAPIF for INSPIRE at PDOK is that descriptions of encodings other than GML are not yet available for most INSPIRE themes.
+2. Much time is needed for flattening of the data and the associated description of the encoding to alternative simple encodings in relation to the INSPIRE data models. A centralized EU approach is needed.
+3. Current tooling (server and client) does not yet fully support an other CRS than WGS84 according to the currently accepted specification part 2 [[PUB-5]]. Geoserver and the example of GISspecialisten came close to this specification. Also the extension of the GeoJSON (Json FG) standard for an other CRS which is in development, might help in this issue.
+5. Another blocking issue before implementation of the OAPIF for INSPIRE is that descriptions of encodings other than GML are not yet available for most INSPIRE themes.
 6. Complex GML as input and output are difficult as long as tooling (server and client) expect simple encodings.
 7. One could discuss if it is really useful to publish complex GML as output, because it is not in line with the aim of OGI API Features: easy to use for developers.
 8. Complex GML as input needs a flattening of the data. This is needed for the software that publishes the features. It can only work with simple features, with one value per attribute and without relations to other objects. This is often not the case with the more complex INSPIRE models.
