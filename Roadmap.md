@@ -15,7 +15,7 @@ Consider leaving out the empty fields to reduce the output size, or use an optio
 10. If not described before, describe the mappimg from the INSPIRE datamodel to the output encoding of the OAPIF and publish it in order to be INSPIRE compliant.
 11. Adjust your metadata of the dataset with the addition of extra OAPIF service. As long as there is no official protocol defined in https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1, use the extended code list for the protocol in the Dutch metadata standard 2.1.0 (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol) contains: "OGC:API features".
 12. If you host your OAPIF by yourself, research how to make INSPIRE compliant metadata of the OAPIF service. It is probably simular to the metadata of a WFS.
-13. Add all the links that follow from the described [requirements](#requirements) (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download)
+13. Add all the links as mentioned in the chapter on [requirements](#requirements) (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).
 14. The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:
 - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto 
 - GOAF: https://github.com/PDOK/goaf

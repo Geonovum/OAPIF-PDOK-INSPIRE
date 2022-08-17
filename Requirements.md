@@ -23,11 +23,14 @@ Below the most relevant requirements (or requirement classes) for setting up an 
 It describes which paths can be used what responses one should receive. 
 It does not make the use of [OpenAPI Specification 3.0](https://oai.github.io/Documentation/specification.html) mandatory, but if it is used, it gives an extra [requirement class](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#rc_oas30)
 
+There is a validation on the OGC standards for OAPIF available.
+![INSPIRE Validator](media/INSPIRE_validator_OAPIF.png "Validation on the OGC standards for OAPIF")
+
 ### INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard
 
 [INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.
 Most of them are explained in the next chapters.
-This document does propose in [Note 2](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#81-requirements-class-inspire-pre-defined-data-set-download-oapif--) to make it a mandatory requirement for INSPIRE to comply with [OAPIF requirements class OpenAPI 3.0.](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#rc_oas30).
+This document does propose in [Note 2](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#81-requirements-class-inspire-pre-defined-data-set-download-oapif--) to make it a mandatory requirement for INSPIRE to comply with [OAPIF requirements class OpenAPI 3.0.](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#rc_oas30)
 
 ### Multilinguality
 
@@ -35,7 +38,7 @@ The [multilinguality requirement class](https://github.com/INSPIRE-MIF/gp-ogc-ap
 
 ### Predefined download
 
-The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2] consists of 3 requirements for each collection to link to:
+The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to link to:
 1. the metadata of the corresponding dataset
 2. the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
 3. the license
@@ -74,6 +77,7 @@ Dutch dataproviders are recommended to follow the [Dutch API design rules](https
 
 The standards consideraded in this guideline do not set a specific encoding as mandatory. https://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_encodings [[PUB-1]]
 Once an other encoding than GML is used, data providers need to document how the encoding relates to the concerned INSPIRE datamodel.
+The good practice on the use of [geopackages](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) as encoding, describes how this describing should be done.
 
 ### Filtering
 

@@ -19,12 +19,13 @@ This chaper will coclude with an overview, how these implementations meet the re
 The GOAF implementation has been realized during one week of close cooperation between PDOK and Geonovum in a so called HIGH5 session.
 The Dutch addresses used with Goaf implementation were mapped to GeoJSON with OGR modules in Goaf. This dataset was chosen, because a description of the GeoJSON encoding was already available at [[PUB-4]]. The harmonized data was not chosen, because it did not contain the actual addresses, but only a link. This is caused by the complexity of the INSPIRE model.
 The Statistical Units used with Pygeoapi and Geoserver were chosen, because the harmonized WFS returns simple GML, so problems with complex GML could be avoided.
+The GISspecialisten example was created for a tender to implement [spatial API's in a testbed](https://github.com/Geonovum/testbed-spatial-APIs) dealing with 5 reseach topics. This one is the result of [Topic one](https://github.com/Geonovum/testbed-spatial-APIs/tree/main/topic%20%231%20Spatial%20data%20APIs%20CRS%20Extension), which was about serving more then one CRS.
 
 ### Examples versus INSPIRE requirements
 
 Next table shows in what extend the examples meet the INSPIRE requirements for OAPIF.
 
-|nr| eis	| GOAF	| Pygeoapi|	Geoserver| GISspecialisten|
+|nr| Requirement| GOAF	| Pygeoapi|	Geoserver| GISspecialisten|
 |---|-------|-------------|-----------|------|-------| 
 |1|OGC API Features Core| 95%	|95%	|90%	|95%|
 |3|multilinguality|?|?|?|?|
@@ -278,8 +279,11 @@ https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspi
 The bulk download link has not been implemented. 
 
 ***RQ 7:CRS ETRS89 and WGS84***
-https://geoservice-ogc-api.azurewebsites.net/collections/
-clearly shows that multiple CRSs are supported.
+
+https://geoservice-ogc-api.azurewebsites.net/collections/ gives the following result:
+![More than one CRS](media/Gisspecialisten_meerdereCRSen.png "More than one CRS in collection path")
+
+This clearly shows that multiple CRSs are supported.
 The items can be retrieved with multiple CRS's as output. 
 Compare in RD New:  
 https://geoservice-ogc-api.azurewebsites.net/collections/Inspire_RCE%20rce_inspire_points/items/59631/?crs=http://www.opengis.net/def/crs/EPSG/0/28992  
