@@ -20,15 +20,15 @@ An OAPIF consist of resources that can be retrieved by typing the corresponding 
 |Feature collections|/collections|This resource lists the feature collections that are offered through the API.|
 |Feature collection|/collections/{collectionId}|This resource describes the feature collection identified in the path.|
 |Features|/collections/{collectionId}/items|This resource presents the features that are contained in the collection.|
-|Feature|/collections/{collectionId}/items/{featureId}|This resource presents the feature that is identified in the path|
+|Feature|/collections/{collectionId}/items/{featureId}|This resource presents the feature that is identified in the path.|
 
-In the API definition, one can find all the supported encodings (html, json) and parameters that can be given allong with URL like a bounding box or a limit of tehh amount of features.
+In the API definition, one can find all the supported encodings (HTML, JSON) and parameters that can be given along with URL like a bounding box or a limit of the amount of features.
 By default, an OAPIF service will provide access to a single dataset. Rather than sharing the data as a complete dataset, the OGC API Features standards offer direct, fine-grained access to the data at the feature (object) level.
 
-The best way of understanding the concept is looking at the examples that are discussed in the chapter of [examples](#examples).
+The best way of understanding the concept is looking at the examples that are discussed in the chapter of [examples](#H03).
 
-Since providing a download service is an INSPIRE requirement when responsable for an INSPIRE dataset, the use of OAPIF can be considered for this purpose.
-It is even seen as an endorsed [Good Practice](https://inspire.ec.europa.eu/portfolio/good-practice-library/) within the INSPIRE community.
+Since providing a download service is an INSPIRE requirement when responsible for an INSPIRE dataset, the use of OAPIF can be considered for this purpose.
+It is even seen as an endorsed <a href="https://inspire.ec.europa.eu/portfolio/good-practice-library/" target="_blank">Good Practice</a> within the INSPIRE community.
 
 
 
