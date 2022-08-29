@@ -9,7 +9,7 @@ A general recommendation to all three parties is to adjust as much as possible t
 1. Figure out the best way of supporting more than one CRS, and at least [WGS84](https://epsg.io/4326) and [ETRS89](https://epsg.io/4258) since the last is the most common in INSPIRE and mostly mandatory, but also provide the [Dutch RD](https://www.opengis.net/def/crs/EPSG/0/28992).
 2. Stimulate data providers who want OAPIF as a download service for their harmonized INSPIRE data to define the mapping of this data to an alternative encodings together with other data providers in Europe. In case of PDOK, this means geopackage for input, and GeoJSON for output.
 3. Follow the developments of the alternative encodings.
-4. Research how the metadata of the OAPIF service should look like.
+4. Research what the metadata of the OAPIF service should look like.
 5. Try to reach other data providers that are interested in OAPIF service.
 6. Try to reach users for the OAPIF services.
 7. Consider leaving out the empty fields or use an option not to show them.
