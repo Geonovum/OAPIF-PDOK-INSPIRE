@@ -194,7 +194,7 @@ The source encoding used was the GML as resulted from the WFS request mentioned 
 The conversion to the output in GeoJSON was an automated process within Geoserver.
 
 ***RQ 6:bulk download***  
-The was no bulk download link. 
+There was no bulk download link. 
 
 ***RQ 7:CRS ETRS89 and WGS84***  
 https://apisandbox.geonovum.nl/geoserver/nl_su_nuts/ogc/features/collections/su_nuts1_2016_RDNew?f=application%2Fjson
