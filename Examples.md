@@ -57,7 +57,7 @@ https://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses/items?f=json&bbox=4.
 ***RQ 4:predefined download***  
 There is a link to the metadata for the one collection addresses in the OAPIF.  
 There is no link to http://inspire.ec.europa.eu/featureconcept/Address, but in fact this concerns the not harmonized data.  
-The licence link is missing.
+The licence link is missing in https://api.pdok.nl/geonovum/oaf/v1_0 but present in https://api.pdok.nl/geonovum/oaf/v1_0?f=html.
 
 ***RQ 5:GeoJSON***  
 The output encoding for GeoJSON is supported: http://api.pdok.nl/geonovum/oaf/v1_0/collections/addresses//items?f=json
