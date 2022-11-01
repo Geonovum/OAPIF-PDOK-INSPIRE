@@ -69,6 +69,7 @@ Additionally, there is a geopackage link (https://s3.delivery.pdok.nl/public/geo
 
 ***RQ 7:CRS ETRS89 and WGS84***  
 Only coordinate reference system  [WGS84](https://epsg.io/4326) is implemented.
+OGC-API-Features Part 2 on coordinate systems has clearly not been implemented yet.
  
 ***RQ 8a:GML as input***  
 In the case of the Dutch addresses the choice has finally been made, not to use the harmonized GML as input. Instead, the AS-Is-data was chosen, because in this harmonized GML file, the addresses don't contain the actual address, but links to sub elements via the components tag. As a result of this choice, the Inspire-ID is missing because that was no part of the AS-Is data.
@@ -133,7 +134,8 @@ https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version
 
 ***RQ 7:CRS ETRS89 and WGS84***  
 The source data from the WFS was in [ETRS89](https://epsg.io/4258).
-Pygeoapi does have the option to specify the source_srs and target_srs, but it is not used yet because the output appears to be [WGS84](https://epsg.io/4326) regardless of the specified target_srs. 
+Pygeoapi does have the option to specify the source_srs and target_srs, but it is not used yet because the output appears to be [WGS84](https://epsg.io/4326) regardless of the specified target_srs.
+OGC-API-Features Part 2 on coordinate systems has clearly not been implemented yet. 
 
 ***RQ 8:GML***  
 1. Pygeoapi supports direct WFS and Simple GML as input. Unfortunately this did not work, as you can see on the 2 collections where is was tried: https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2017/items and https://apisandbox.geonovum.nl/pygeoapi_SU/collections/StatisticalUnits_Gemeente_2016_GML/items.
