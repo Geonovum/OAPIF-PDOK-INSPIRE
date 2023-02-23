@@ -23,7 +23,7 @@ Below the most relevant requirements (or requirement classes) for setting up an 
 It describes which paths can be used and what responses one should receive. 
 It does not make the use of [OpenAPI Specification 3.0](https://oai.github.io/Documentation/specification.html) mandatory, but if it is used, it gives an extra [requirement class](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30).
 
-There is a validation on the OGC standards for OAPIF available.
+There is a INSPIRE validation on the OGC standards for OAPIF available. It test on OGC requirements, but it does not test the requirements as stated in [[PUB-2]].
 
 &nbsp;&nbsp;&nbsp;![INSPIRE Validator](media/INSPIRE_validator_OAPIF.png "Validation on the OGC standards for OAPIF")
 
