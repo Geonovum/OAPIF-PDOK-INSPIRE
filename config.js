@@ -123,7 +123,7 @@ var respecConfig =
     "PUB-1":
       {
         title:      "OGC API Features Part1:Core",
-        href:       "https://docs.opengeospatial.org/is/17-069r3/17-069r3.html",
+        href:       "https://docs.opengeospatial.org/is/17-069r4/17-069r4.html",
         status:     "V1.0",
         publisher:  "OGC",
         company:    "OGC",
@@ -155,7 +155,7 @@ var respecConfig =
 	"PUB-5":
       {
         title:      "OGC API - Features - Part 2: Coordinate Reference Systems by Reference",
-        href:       "http://docs.opengeospatial.org/is/18-058/18-058.html",
+        href:       "http://docs.opengeospatial.org/is/18-058r1/18-058r1.html",
         status:     "V1.0",
         publisher:  "OGC",
         company:    "OGC",
