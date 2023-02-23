@@ -47,7 +47,7 @@ The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-og
 
 ### GeoJSON
 
-The [GeoJSON requirement class](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_requirements_class_geojson) in [[PUB-1] recommends to support GeoJSON for features with geometry, but as stated in https://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_encodings, no encoding is mandatory. 
+The [GeoJSON requirement class](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_requirements_class_geojson) in [[PUB-1]] recommends to support GeoJSON for features with geometry, but as stated in https://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_encodings, no encoding is mandatory. 
 The [GeoJSON requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) in [[PUB-2]] also recommends to document how the GeoJSON encoding is retrieved from the INSPIRE data models.
 
 ### Bulk download
