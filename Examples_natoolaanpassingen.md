@@ -12,7 +12,7 @@ All demo services used the same selection of the Dutch INSPIRE Addresses in a GM
 
 Per tool, findings are elaborated in the next chapters when relevant.
 
-#### Pygeoapi versus requirements
+### Pygeoapi versus requirements
 
 The following findings show how Pygeoapi complies to the requirements.
 
@@ -196,7 +196,7 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 ***Other findings***
 More information about the Geoserver adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/Geosolutions.pdf
  
-#### Deegree versus requirements
+### Deegree versus requirements
 
 The following findings show how Geoserver complies to the requirements.
 
