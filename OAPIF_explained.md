@@ -1,7 +1,7 @@
-## What is OGC API Features
+## Introduction to OGC API Features
 
-OGC API Features (OAPIF) is a multi-part standard that offers the capability to create, modify, and query spatial data on the Web and specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
-The specification is a multi-part document. [[PUB-1]], [[PUB-5]], [[PUB-6]].
+OGC API Features (OAPIF) is a standard that offers the capability to create, modify, and query spatial data on the Web and specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
+The specification is a multi-part document: [[PUB-1]], [[PUB-5]], [[PUB-6]].
 
 OAPIF is also the term used for a feature download service by means of an API (Application Program Interface) based on OGC standards. 
 OAPIF has been considered as follow up for the OGC WFS standard, but that does not mean it will replace it in the near future, although it might happen in a later future.
@@ -10,7 +10,7 @@ OAPIF easier to use and needs less knowledge in the spatial domain.
 Note as well that WFS adopts the Geography Markup Language (GML) as a default data format. In contrast, OAPIF includes recommendations to support HTML and GeoJSON as encodings.
 Implementations of OAPIF may also optionally support GML.
 
-An OAPIF consist of resources that can be retrieved by typing the corresponding path after the landing page of the OAPIF in a web browser or web application.
+An OAPIF service consists of resources that can be retrieved by typing the corresponding path after the landing page of the OAPIF in a web browser or web application.
  
 |Resource|Path|Purpose|
 |--------|----|-------|
