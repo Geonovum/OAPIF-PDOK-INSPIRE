@@ -95,7 +95,7 @@ https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz
 Pygeoapi does not support GML-output at item-level, but this is not a requirement.
 
 ***RQ 9:Dutch API design rules***  
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
@@ -175,7 +175,7 @@ As output, the following link can be found at [/collections/collection level](ht
 {"href":"https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=application%2Fgml%2Bxml%3Bversion%3D3.2","rel":"items","type":"application/gml+xml;version=3.2","title":"Addresses items as application/gml+xml;version=3.2"}
 
 ***RQ 9:Dutch API design rules***  
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
@@ -246,7 +246,7 @@ As output, the following links can be found at [/collections/collection level](h
 {"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items","rel":"items","type":"application/gml+xml;version=3.2","title":"Features as GML"} (use parameter f=xml)
 
 ***RQ 9:Dutch API design rules***  
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 

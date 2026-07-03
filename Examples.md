@@ -79,8 +79,8 @@ GML as output is not supported.
 
 ***RQ 9:Dutch API design rules***  
 Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
-1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
-2. no complete version number in every return: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57).
+1. no 404 result when "/" was used on the end of an URL: (https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48)
+2. no complete version number in every return: (https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-57).
 
 ***RQ 10:describing encoding***  
 The describing of the encoding has been referred to via https://api.pdok.nl/geonovum/oaf/v1_0/collections?f=html with:
@@ -143,9 +143,9 @@ OGC-API-Features Part 2 on coordinate systems has clearly not been implemented 
 
 ***RQ 9:Dutch API design rules***  
 Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
-1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
-2. no version number in URL: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-20
-3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
+1. no 404 result when "/" was used on the end of an URL: (https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48)
+2. no version number in URL: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-20
+3. no complete version number in every return: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-57
 
 ***RQ 10:describing encoding***  
 The describing of the encoding has not been performed, but in fact it is a simple 1 to 1 conversion.
@@ -217,10 +217,10 @@ Regarding to OGC-API-Features specification part 2 [[PUB-5]], 4 requirements wer
 
 ***RQ 9:Dutch API design rules***  
 Not all requirements from the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
-1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
-2. no version number in URL: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-20
-3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
-4. no use of the standard naming of the OAS document ('api' was used instead of 'openapi') https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-51
+1. no 404 result when "/" was used on the end of an URL: (https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48)
+2. no version number in URL: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-20
+3. no complete version number in every return: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-57
+4. no use of the standard naming of the OAS document ('api' was used instead of 'openapi') https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-51
 
 ***RQ 10:describing encoding***  
 The describing of the encoding has not been performed, but in fact it is a simple 1 to 1 conversion.
@@ -303,10 +303,10 @@ Regarding to OGC-API-Features specification part 2 [[PUB-5]], 2 related [Require
 
 ***RQ 9:Dutch API design rules***  
 Not all requirements from [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) have been implemented:
-1. no 404 result when "/" was used on the end of an URL: (https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48)
-2. no version number in URL: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-20
-3. no complete version number in every return: https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-57
-4. no use of the standard naming of the OAS document ('api' was used instead of 'openapi') https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-51
+1. no 404 result when "/" was used on the end of an URL: (https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-48)
+2. no version number in URL: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-20
+3. no complete version number in every return: https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-57
+4. no use of the standard naming of the OAS document ('api' was used instead of 'openapi') https://gitdocumentatie.logius.nl/publicatie/api/adr/#api-51
 
 ***RQ 10:describing encoding***  
 The describing of the encoding has not been performed. 
